@@ -1,0 +1,31 @@
+<!doctype html>
+<html ng-app="photoGallery">
+<head>
+	<meta charset="utf-8" />
+	<title>UI test - Jorge Sandoval</title>
+  <link href="css/main.css" media="screen, projection" rel="stylesheet" type="text/css" />
+</head>
+<body ng-controller="gallery">
+  <header><h1>{{galleryTitle}}</h1></header>
+  <div id="content">
+    <div id="imageDisplay">
+      <img id="mainImage" ng-src="{{mainImage}}">
+      <button id="prevBtn" ng-click="setImage('prev')">Previous Image</button>
+      <button id="nextBtn" ng-click="setImage('next')">Next Image</button>
+    </div>
+    <div id="imageInfo">
+      <h2 class="author">{{title}}</h2>
+      <p class="description">{{description}}</p>
+    </div>
+  </div>
+  <ul id="thumbsList">
+    <li ng-repeat="photo in photos">
+      <img class="thumb" ng-src="{{photo.thumb_url}}" ng-click="setImage(photo)" ng-class="{'active': photo.id == activeThumb}">
+    </li>
+  </ul>
+  <script type="text/javascript" src="lib/jquery-2.0.3.min.js"></script>
+  <script type="text/javascript" src="lib/angular.min.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
+  

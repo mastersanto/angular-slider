@@ -1,0 +1,90 @@
+@import icons/*.png
+@include font-face("NeoSans", font-files("neosansintel.woff", "neosansintel.ttf", "neosansintel.svg"))
+
+body, html
+  height: 100%
+body
+  position: relative
+header
+  @include background-image(linear-gradient(#0057a3, #005aa8 30%, #005aa8 70%, #0166ba))
+  @include box-shadow(rgba(black, 0.4) 2px 2px 10px)
+  display: block
+  position: relative
+  z-index: 10
+  color: $yellow
+  h1
+    display: block
+    margin: 0
+    height: 67px
+    font-family: "NeoSans"
+    font-size: 34px
+    line-height: 67px
+    text-align: center
+#content
+  background-image: url(../img/bkg_slider.jpg)
+  background-position: center
+  height: 477px
+  padding: 46px 0 18px
+  #imageDisplay
+    position: relative
+    border: 1px solid #d1d0d0
+    display: block
+    margin: 0 auto 28px
+    width: 600px
+    height: 400px
+    @include box-shadow(rgba(black, 0.6) 0px 0px 25px)
+    background-color: rgba(black, 0.4)
+    #mainImage      
+    #prevBtn,
+    #nextBtn
+      @include box-shadow(rgba(black, 0.4) 2px 2px 10px)
+      display: block
+      height: icons-sprite-height(prev)
+      width: icons-sprite-width(prev)
+      position: absolute
+      top: 50%
+      margin-top: -21px
+      text-indent: -9999px
+      border: 0 none
+      &.hide
+        display: none
+    #prevBtn
+      right: 100%
+      @include icons-sprite(prev)
+    #nextBtn
+      left: 100%
+      @include icons-sprite(next)
+  #imageInfo
+    color: $yellow
+    font-family: "NeoSans"
+    text-align: center
+    .author
+      font-size: 24px
+      margin: 0
+    .description
+      font-size: 16px
+      margin: 0
+#thumbsList
+  background-image: url(../img/bkg_thumbar.png)
+  margin: 0
+  padding: 29px 0 0 
+  height: 90px
+  list-style: none
+  text-align: center
+  li
+    @include box-shadow(rgba(black, 0.6) 0px 0px 15px)
+    display: inline-block
+    .thumb
+      @include opacity(0.7)
+      border-color: $blueDark
+      border-style: solid
+      border-width: 1px
+      width: 100px
+      height: 60px
+      vertical-align: top
+      cursor: pointer
+      &.active
+        @include opacity(1)
+        border-color: $blue
+        width: 120px
+        height: 70px
